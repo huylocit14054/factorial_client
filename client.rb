@@ -23,7 +23,7 @@ class Client
             threads << Thread.new do
                 #in each thread create b int number and send it to server      
                 b.times do |j|
-                    number = rand(5)
+                    number = rand(1..10)
                     puts "Thread #{i+1} send number #{number}"
                     call_fatorial(number.to_s)
                 end 
@@ -48,7 +48,7 @@ class Client
             @room -=1
             if (@room < 0)
                 room_condition.wait(@lock)
-                puts"Room #{@room}"
+                #puts"Room #{@room}"
             end
             @call_id = generate_uuid
             @exchange.publish(number.to_s,routing_key: @server_queue_name, correlation_id: @call_id, reply_to: @reply_queue.name)
