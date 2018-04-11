@@ -5,7 +5,7 @@ require 'bunny'
 class Server
     def initialize
         #connect to RabbitMQ server
-        @connection = Bunny.new(host:"localhost",user: "admin", password: "admin")
+        @connection = Bunny.new(host:"52.14.65.170",user: "admin", password: "admin")
         @connection.start
         @channel = @connection.create_channel
     end 

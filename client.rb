@@ -7,7 +7,7 @@ class Client
                 :channel, :server_queue_name, :reply_queue, :exchange , :room_condition , :room
     
     def initialize(server_queue_name)
-        @connection = Bunny.new(host:"localhost",user: "admin", password: "admin")
+        @connection = Bunny.new(host:"52.14.65.170",user: "admin", password: "admin")
         @connection.start
         @channel = @connection.create_channel
         @exchange = @channel.direct("factorial_exchange")
